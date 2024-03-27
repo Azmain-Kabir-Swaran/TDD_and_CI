@@ -32,5 +32,13 @@ public class MyStringTest {
         assertEquals("Starting position is at the end of the string", -1, myString.indexOfString("hello", "", 5));
     }
 
+    // Tests with empty strings
+    @Test
+    public void testIndexOfStringWithEmptyStrings() {
+        MyString myString = new MyString();
+        assertEquals("Both strings are empty", -1, myString.indexOfString("", "", 0));
+        assertEquals("Searching for non-empty substring in an empty string", -1, myString.indexOfString("", "he", 0));
+        assertEquals("Searching for an empty substring in a non-empty string", -1, myString.indexOfString("hello", "", 0));
+    }
 
 }
