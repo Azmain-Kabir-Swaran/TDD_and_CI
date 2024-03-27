@@ -16,6 +16,14 @@ public class MyStringTest {
         assertEquals("Substring 'hello' equals the string 'hello'", 0, myString.indexOfString("hello", "hello", 0));
     }
 
+    // Tests with valid inputs and non-zero starting positions
+    @Test
+    public void testIndexOfStringWithValidInputAndNonZeroPosition() {
+        MyString myString = new MyString();
+        assertEquals("Substring 'llo' found in 'hello' starting at position 2", 2, myString.indexOfString("hello", "llo", 2));
+        assertEquals("Substring 'hello' not found in 'hello' starting at position 1", -1, myString.indexOfString("hello", "hello", 1));
+    }
+
     // Tests when the substring is not found in the string
     @Test
     public void testIndexOfStringWithSubstringNotFound() {
