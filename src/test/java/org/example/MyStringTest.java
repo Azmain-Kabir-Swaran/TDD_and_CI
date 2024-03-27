@@ -50,5 +50,11 @@ public class MyStringTest {
         assertEquals("Both strings are null", -1, myString.indexOfString(null, null, 0));
     }
 
+    // Tests when the substring is longer than the string
+    @Test
+    public void testIndexOfStringWhenSubstringIsLongerThanString() {
+        MyString myString = new MyString();
+        assertEquals("Substring 'hellohello' is longer than 'hello'", -1, myString.indexOfString("hello", "hellohello", 0));
+    }
 
 }
