@@ -97,5 +97,14 @@ public class MyStringTest {
         assertEquals("Replacing '10' with '101' in '1010101' should return '1011011011'", "1011011011", myString.replace("1010101", "10", "101"));
     }
 
+    // Test replace with null values
+    @Test
+    public void testReplaceWithNullParameters() {
+        MyString myString = new MyString();
+        assertEquals("Replacing in a null string should return null", null, myString.replace(null, "find", "replace"));
+        assertEquals("Replacing a null 'find' string in 'source' should return null", null, myString.replace("source", null, "replace"));
+        assertEquals("Replacing 'find' with a null string in 'source' should return null", null, myString.replace("source", "find", null));
+        assertEquals("Replacing null with null in a null string should return null", null, myString.replace(null, null, null));
+    }
 
 }
