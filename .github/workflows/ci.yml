@@ -29,3 +29,7 @@ jobs:
       - name: Test with Maven
         run: mvn -B test -Dmaven.compiler.source=11 -Dmaven.compiler.target=11
         # Executes Maven to run the project's tests.
+
+      - name: Run PIT Mutation Test
+        run: mvn clean test-compile org.pitest:pitest-maven:mutationCoverage
+        # Executes PITest to generate mutation coverage reports.
