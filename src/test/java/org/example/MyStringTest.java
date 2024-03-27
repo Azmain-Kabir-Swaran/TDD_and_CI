@@ -15,4 +15,13 @@ public class MyStringTest {
         assertEquals("Substring 'lo' found at the end of 'hello'", 3, myString.indexOfString("hello", "lo", 0));
         assertEquals("Substring 'hello' equals the string 'hello'", 0, myString.indexOfString("hello", "hello", 0));
     }
+
+    // Tests when the substring is not found in the string
+    @Test
+    public void testIndexOfStringWithSubstringNotFound() {
+        MyString myString = new MyString();
+        assertEquals("Substring 'world' not found in 'hello'", -1, myString.indexOfString("hello", "world", 0));
+        assertEquals("Substring 'he' not found when starting from index 1 in 'hello'", -1, myString.indexOfString("hello", "he", 1));
+    }
+
 }
