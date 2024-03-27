@@ -3,6 +3,7 @@ package org.example;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class MyStringTest {
 
@@ -101,6 +102,41 @@ public class MyStringTest {
         assertNull("Replacing a null 'find' string in 'source' should return null", myString.replace("source", null, "replace"));
         assertNull("Replacing 'find' with a null string in 'source' should return null", myString.replace("source", "find", null));
         assertNull("Replacing null with null in a null string should return null", myString.replace(null, null, null));
+    }
+
+    // Testing and mocking with Mockito
+    @Test
+    public void testReplaceWithMockedIndexOfString() {
+        MyString myString = spy(new MyString());
+
+        // Test replacing a word in a sentence
+        when(myString.indexOfString("hello world", "world", 0)).thenReturn(6);
+        when(myString.indexOfString("hello world", "world", 6 + "world".length())).thenReturn(-1);
+        // assert the replace method's result for one replacement
+        assertEquals("hello java", myString.replace("hello world", "world", "java"));
+
+        // Test no occurrence of the substring to replace
+        when(myString.indexOfString("hello world", "java", 0)).thenReturn(-1);
+        // Execute and assert the replace method's result when no replacement occurs
+        assertEquals("hello world", myString.replace("hello world", "java", "world"));
+
+        // Test replacing with an empty string
+        when(myString.indexOfString("hello world", "world", 0)).thenReturn(6);
+        when(myString.indexOfString("hello world", "world", 6 + "world".length())).thenReturn(-1);
+        // Execute and assert the replace method's result when replacing with an empty string
+        assertEquals("hello ", myString.replace("hello world", "world", ""));
+
+        // Test the source string is empty
+        when(myString.indexOfString("", "world", 0)).thenReturn(-1);
+        // Execute and assert the replace method's result with an empty source string
+        assertEquals("", myString.replace("", "world", "java"));
+
+        // Test the search string is empty
+        assertEquals("hello world", myString.replace("hello world", "", "java"));
+        // Test replacing with null values should return null
+        assertNull(myString.replace(null, "world", "java"));
+        assertNull(myString.replace("hello world", null, "java"));
+        assertNull(myString.replace("hello world", "world", null));
     }
 
 }
