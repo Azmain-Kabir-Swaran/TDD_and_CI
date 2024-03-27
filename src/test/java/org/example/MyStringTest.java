@@ -74,4 +74,15 @@ public class MyStringTest {
         assertEquals("Replacing ' ' with '-' in 'hello world' should return 'hello-world'", "hello-world", myString.replace("hello world", " ", "-"));
     }
 
+    // MyStringTest.java
+
+    // Test replace for empty string
+    @Test
+    public void testReplaceEmptyString() {
+        MyString myString = new MyString();
+        assertEquals("Replacing empty string with 'abc' in 'test' should return 'test'", "test", myString.replace("test", "", "abc"));
+        assertEquals("Replacing 'a' with an empty string in 'aardvark' should return 'rdvrk'", "rdvrk", myString.replace("aardvark", "a", ""));
+        assertEquals("Replacing 'test' with 'exam' in empty string should return an empty string", "", myString.replace("", "test", "exam"));
+    }
+
 }
