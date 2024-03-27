@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class MyStringTest {
 
-    // Tests for valid inputs where the substring is found in the string
+    // Tests indexOfString for valid inputs where the substring is found in the string
     @Test
     public void testIndexOfStringWithValidInputs() {
         MyString myString = new MyString();
@@ -16,7 +16,7 @@ public class MyStringTest {
         assertEquals("Substring 'hello' equals the string 'hello'", 0, myString.indexOfString("hello", "hello", 0));
     }
 
-    // Tests with valid inputs and non-zero starting positions
+    // Tests indexOfString with valid inputs and non-zero starting positions
     @Test
     public void testIndexOfStringWithValidInputAndNonZeroPosition() {
         MyString myString = new MyString();
@@ -24,7 +24,7 @@ public class MyStringTest {
         assertEquals("Substring 'hello' not found in 'hello' starting at position 1", -1, myString.indexOfString("hello", "hello", 1));
     }
 
-    // Tests when the substring is not found in the string
+    // Tests indexOfString when the substring is not found in the string
     @Test
     public void testIndexOfStringWithSubstringNotFound() {
         MyString myString = new MyString();
@@ -32,7 +32,7 @@ public class MyStringTest {
         assertEquals("Substring 'he' not found when starting from index 1 in 'hello'", -1, myString.indexOfString("hello", "he", 1));
     }
 
-    // Tests when the starting position is out of bounds
+    // Tests indexOfString when the starting position is out of bounds
     @Test
     public void testIndexOfStringWithPositionOutOfBounds() {
         MyString myString = new MyString();
@@ -40,7 +40,7 @@ public class MyStringTest {
         assertEquals("Starting position is at the end of the string", -1, myString.indexOfString("hello", "", 5));
     }
 
-    // Tests with empty strings
+    // Tests indexOfString with empty strings
     @Test
     public void testIndexOfStringWithEmptyStrings() {
         MyString myString = new MyString();
@@ -49,7 +49,7 @@ public class MyStringTest {
         assertEquals("Searching for an empty substring in a non-empty string", -1, myString.indexOfString("hello", "", 0));
     }
 
-    // Continue with tests for null inputs
+    // Test indexOfString for null inputs
     @Test
     public void testIndexOfStringWithNullInputs() {
         MyString myString = new MyString();
@@ -58,14 +58,14 @@ public class MyStringTest {
         assertEquals("Both strings are null", -1, myString.indexOfString(null, null, 0));
     }
 
-    // Tests when the substring is longer than the string
+    // Tests indexOfString when the substring is longer than the string
     @Test
     public void testIndexOfStringWhenSubstringIsLongerThanString() {
         MyString myString = new MyString();
         assertEquals("Substring 'hellohello' is longer than 'hello'", -1, myString.indexOfString("hello", "hellohello", 0));
     }
 
-    // Test for basic replacement functionality
+    // Test replace method for basic replacement functionality
     @Test
     public void testBasicReplace() {
         MyString myString = new MyString();
@@ -74,9 +74,7 @@ public class MyStringTest {
         assertEquals("Replacing ' ' with '-' in 'hello world' should return 'hello-world'", "hello-world", myString.replace("hello world", " ", "-"));
     }
 
-    // MyStringTest.java
-
-    // Test replace for empty string
+    // Test replace method for empty string
     @Test
     public void testReplaceEmptyString() {
         MyString myString = new MyString();
@@ -85,9 +83,7 @@ public class MyStringTest {
         assertEquals("Replacing 'test' with 'exam' in empty string should return an empty string", "", myString.replace("", "test", "exam"));
     }
 
-    // MyStringTest.java
-
-    // Test replace with overlapping patterns
+    // Test replace method with overlapping patterns
     @Test
     public void testReplaceWithOverlappingPatterns() {
         MyString myString = new MyString();
@@ -97,14 +93,14 @@ public class MyStringTest {
         assertEquals("Replacing '10' with '101' in '1010101' should return '1011011011'", "1011011011", myString.replace("1010101", "10", "101"));
     }
 
-    // Test replace with null values
+    // Test replace method with null values
     @Test
     public void testReplaceWithNullParameters() {
         MyString myString = new MyString();
-        assertEquals("Replacing in a null string should return null", null, myString.replace(null, "find", "replace"));
-        assertEquals("Replacing a null 'find' string in 'source' should return null", null, myString.replace("source", null, "replace"));
-        assertEquals("Replacing 'find' with a null string in 'source' should return null", null, myString.replace("source", "find", null));
-        assertEquals("Replacing null with null in a null string should return null", null, myString.replace(null, null, null));
+        assertNull("Replacing in a null string should return null", myString.replace(null, "find", "replace"));
+        assertNull("Replacing a null 'find' string in 'source' should return null", myString.replace("source", null, "replace"));
+        assertNull("Replacing 'find' with a null string in 'source' should return null", myString.replace("source", "find", null));
+        assertNull("Replacing null with null in a null string should return null", myString.replace(null, null, null));
     }
 
 }
