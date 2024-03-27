@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  CI-Build-and-Run:
     runs-on: ubuntu-latest
 
     steps:
