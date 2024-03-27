@@ -85,4 +85,17 @@ public class MyStringTest {
         assertEquals("Replacing 'test' with 'exam' in empty string should return an empty string", "", myString.replace("", "test", "exam"));
     }
 
+    // MyStringTest.java
+
+    // Test replace with overlapping patterns
+    @Test
+    public void testReplaceWithOverlappingPatterns() {
+        MyString myString = new MyString();
+        assertEquals("Replacing 'aa' with 'a' in 'aaaa' should return 'aa'", "aa", myString.replace("aaaa", "aa", "a"));
+        assertEquals("Replacing 'ABA' with 'AB' in 'ABABABA' should return 'ABABAB'", "ABBAB", myString.replace("ABABABA", "ABA", "AB"));
+        assertEquals("Replacing '101' with '10' in '1010101' should return '10101'", "10010", myString.replace("1010101", "101", "10"));
+        assertEquals("Replacing '10' with '101' in '1010101' should return '1011011011'", "1011011011", myString.replace("1010101", "10", "101"));
+    }
+
+
 }
