@@ -65,11 +65,13 @@ public class MyStringTest {
         assertEquals("Substring 'hellohello' is longer than 'hello'", -1, myString.indexOfString("hello", "hellohello", 0));
     }
 
-    // Tests replace for non-null values
+    // Test for basic replacement functionality
     @Test
-    public void testReplaceForNonNullValues() {
+    public void testBasicReplace() {
         MyString myString = new MyString();
-        assertEquals("Replacing 'dog' with 'cat' in 'dogLover'", "catLover", myString.replace("dogLover", "dog", "cat"));
+        assertEquals("Replacing 'dog' with 'cat' in 'dogLover' should return catLover", "catLover", myString.replace("dogLover", "dog", "cat"));
+        assertEquals("Replacing 'bar' with 'bat' in 'barman' should return 'batman'", "batman", myString.replace("barman", "bar", "bat"));
+        assertEquals("Replacing ' ' with '-' in 'hello world' should return 'hello-world'", "hello-world", myString.replace("hello world", " ", "-"));
     }
 
 }
