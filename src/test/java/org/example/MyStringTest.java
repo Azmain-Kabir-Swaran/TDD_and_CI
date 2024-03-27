@@ -24,4 +24,13 @@ public class MyStringTest {
         assertEquals("Substring 'he' not found when starting from index 1 in 'hello'", -1, myString.indexOfString("hello", "he", 1));
     }
 
+    // Tests when the starting position is out of bounds
+    @Test
+    public void testIndexOfStringWithPositionOutOfBounds() {
+        MyString myString = new MyString();
+        assertEquals("Starting position is beyond the string length", -1, myString.indexOfString("hello", "he", 6));
+        assertEquals("Starting position is at the end of the string", -1, myString.indexOfString("hello", "", 5));
+    }
+
+
 }
