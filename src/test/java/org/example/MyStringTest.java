@@ -41,4 +41,14 @@ public class MyStringTest {
         assertEquals("Searching for an empty substring in a non-empty string", -1, myString.indexOfString("hello", "", 0));
     }
 
+    // Continue with tests for null inputs
+    @Test
+    public void testIndexOfStringWithNullInputs() {
+        MyString myString = new MyString();
+        assertEquals("First string is null", -1, myString.indexOfString(null, "test", 0));
+        assertEquals("Second string is null", -1, myString.indexOfString("test", null, 0));
+        assertEquals("Both strings are null", -1, myString.indexOfString(null, null, 0));
+    }
+
+
 }
