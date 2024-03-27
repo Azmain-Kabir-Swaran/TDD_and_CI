@@ -31,8 +31,34 @@ public class MyString {
         return -1;
     }
 
+    // Replaces all occurrences of s1 in s with s2, returning the modified string
     public String replace(String s, String s1, String s2) {
-        // Returning empty string for intentionally failing
-        return "";
+        // Check for null inputs, return null if any input is null.
+        if (s == null || s1 == null || s2 == null) return null;
+
+        // If the search string (s1) is empty, return the original string (s) as no replacement is needed.
+        if (s1.isEmpty()) return s;
+
+        // Use StringBuilder to efficiently build the resulting string.
+        StringBuilder result = new StringBuilder();
+        // Initialize the start index to 0 for the beginning of the string.
+        int start = 0;
+        // Find the index of the first occurrence of s1 in s starting from index 'start'.
+        int idx = indexOfString(s, s1, start);
+
+        // Loop until all instances of s1 are found in s.
+        while (idx != -1) {
+            // Append the substring from 'start' to the index of s1, followed by s2 (replacement string).
+            result.append(s, start, idx).append(s2);
+            // Move 'start' to just after the last occurrence of s1.
+            start = idx + s1.length();
+            // Find the next occurrence of s1 starting from the new 'start'.
+            idx = indexOfString(s, s1, start);
+        }
+
+        // Append the rest of the string from 'start' to the end since no more s1 is found.
+        result.append(s.substring(start));
+        // Convert the StringBuilder to String and return the result.
+        return result.toString();
     }
 }
