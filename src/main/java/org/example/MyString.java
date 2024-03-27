@@ -30,4 +30,9 @@ public class MyString {
         // If no match is found after completing the loop, return -1
         return -1;
     }
+
+    public String replace(String s, String s1, String s2) {
+        // Returning empty string for intentionally failing
+        return "";
+    }
 }

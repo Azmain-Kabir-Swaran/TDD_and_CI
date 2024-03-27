@@ -65,4 +65,11 @@ public class MyStringTest {
         assertEquals("Substring 'hellohello' is longer than 'hello'", -1, myString.indexOfString("hello", "hellohello", 0));
     }
 
+    // Tests replace for non-null values
+    @Test
+    public void testReplaceForNonNullValues() {
+        MyString myString = new MyString();
+        assertEquals("Replacing 'dog' with 'cat' in 'dogLover'", "catLover", myString.replace("dogLover", "dog", "cat"));
+    }
+
 }
